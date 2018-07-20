@@ -1,5 +1,3 @@
-# Just some pseudocode...
-
 class BinarySearchTree:
   def __init__(self, value):
     self.value = value
@@ -7,10 +5,22 @@ class BinarySearchTree:
     self.right = None
 
   def depth_first_for_each(self, cb):
-    pass    
+    cb(self.value)
+    if self.left != None:
+      self.left.depth_first_for_each(cb)
+    if self.right != None:
+      self.right.depth_first_for_each(cb)
+    return    
 
   def breadth_first_for_each(self, cb):
-    pass
+    nodes = [self]
+    while len(nodes) > 0:
+      current = nodes.pop(0)
+      cb(current.value)
+      if current.left != None:
+        nodes.append(current.left)
+      if current.right != None:
+        nodes.append(current.right)
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
