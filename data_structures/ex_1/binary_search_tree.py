@@ -4,6 +4,7 @@ class BinarySearchTree:
     self.left = None
     self.right = None
 
+  # Implement depth-first traversal here.
   def depth_first_for_each(self, cb):
     cb(self.value)
     if self.left != None:
@@ -12,6 +13,7 @@ class BinarySearchTree:
       self.right.depth_first_for_each(cb)
     return    
 
+  # Implement breadth-first traversal here.
   def breadth_first_for_each(self, cb):
     nodes = [self]
     while len(nodes) > 0:
